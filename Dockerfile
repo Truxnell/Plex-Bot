@@ -4,7 +4,7 @@ LABEL maintainer="Joshua Arulsamy <joshua.gf.arul@gmail.com>"
 
 # Install ffmpeg
 RUN apt-get -y update && \
-    apt-get install -y --no-install-recommends ffmpeg=7:4.1.6-1~deb10u1 && \
+    apt-get install -y --no-install-recommends ffmpeg && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
