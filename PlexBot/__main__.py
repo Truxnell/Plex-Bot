@@ -5,6 +5,7 @@ Sets up loggers and initiates bot.
 import logging
 
 from discord.ext.commands import Bot
+import discord
 
 from . import load_config
 from .bot import General
@@ -44,7 +45,11 @@ plex_args = {
     "lyrics_token": LYRICS_TOKEN,
 }
 
-bot = Bot(command_prefix=BOT_PREFIX)
+# Set appropriate Intents
+inten = discord.Intents.default()
+inten.members = True
+
+bot = Bot(command_prefix=BOT_PREFIX,intents=inten)
 # Remove help command, we have our own custom one.
 bot.remove_command("help")
 bot.add_cog(General(bot))

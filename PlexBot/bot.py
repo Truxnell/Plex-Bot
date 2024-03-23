@@ -195,7 +195,8 @@ class Plex(commands.Cog):
             self.genius = None
 
         # Log fatal invalid plex token
-        try:
+        plex_log.debug(f"Connecting to Plex at '{self.base_url}'")
+        try: 
             self.pms = PlexServer(self.base_url, self.plex_token)
         except Unauthorized:
             plex_log.fatal("Invalid Plex token, stopping...")
